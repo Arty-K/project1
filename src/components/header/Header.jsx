@@ -1,13 +1,21 @@
 import React, { Component } from 'react';
+import {Container, Row, Col} from 'react-bootstrap/lib/';
+
+
 
 export default class Header extends Component {
     render(){
         return(
-            <div>
-                logo
-                buttons
-                singup block
-            </div>
+            <Container>
+                <Row>
+                    <Col md={12}>
+                           logo
+                           buttons
+                           singup block
+                    </Col>
+
+                </Row>
+            </Container>
         );
     }
 }

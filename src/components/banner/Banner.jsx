@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {Container, Row, Col, Button} from 'react-bootstrap/lib/';
+
 
 export default class Banner extends Component {
     render(){
@@ -10,17 +12,32 @@ export default class Banner extends Component {
             buttonText = 'Sign Up';
 
         return(
-            <div>
-                <h1>
-                    {titleText}
-                </h1> 
-                <h4>
-                    {paragraphText}
-                </h4>
-                <button>
-                    {buttonText}
-                </button>
-            </div>
+            <Container>
+                <Row>
+                    <Col lg={{span: 6}}>
+                        <h1>
+                            {titleText}
+                        </h1>
+                    </Col>
+                </Row>
+
+                <Row>
+                    <Col lg={{span: 6}}>
+                        <h5>
+                            {paragraphText}
+                        </h5>
+                    </Col>
+                </Row>
+
+                <Row>
+                    <Col lg={{span: 4}}>
+                        <Button variant="warning" block>
+                            {buttonText}
+                        </Button>
+                    </Col>
+                </Row>
+
+            </Container>
         );
     }
 }
