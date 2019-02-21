@@ -1,27 +1,24 @@
 import React, { Component } from 'react';
 import {Container, Row, Col} from 'react-bootstrap/lib/';
+import ScrollableAnchor, { configureAnchors } from 'react-scrollable-anchor';
 
 export default class Users extends Component {
     render(){
+        /*anchor setting to fit sticky header*/
+        configureAnchors({offset: -70, scrollDuration: 600});
         return(
-            <div className="container">
-                <div className="row">
-                    <div className="col-12">
-                        <h3>
+            <Container>
+                {/*anchor id for header buttons*/}
+                <ScrollableAnchor id={'users'}>
+                    <Row>
+                        <Col lg={12}>
+                            <h3>
 
-                        </h3>
-                    </div>
-                </div>
-
-                <div className="row">
-                    <div className="col-12">
-                        <h5>
-
-                        </h5>
-                    </div>
-                </div>
-                
-            </div>
+                            </h3>
+                        </Col>
+                    </Row>
+                </ScrollableAnchor>
+            </Container>
         );
     }
 }

@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import {Container, Row, Col, Button} from 'react-bootstrap/lib/';
+import ScrollableAnchor, { configureAnchors } from 'react-scrollable-anchor';
+
+import man_laptop_v1 from '../../imgs/man-mobile.svg';
 
 
 export default class AboutMe extends Component {
@@ -11,28 +14,35 @@ export default class AboutMe extends Component {
             paragraph_2 = 'Last week, Google Search and Ads teams announced two new speed initiatives to help improve user-experience on the web.',
             buttonText = 'Sign Up';
 
+        /*anchor setting to fit sticky header*/
+        configureAnchors({offset: -70, scrollDuration: 600});
+
         return(
             <Container>
-                <Row>
-                    <Col lg={4}>
-                        <img src="" alt=""/>
-                    </Col>
-                    <Col lg={8}>
-                        <h3>
-                            {title_1}
-                        </h3>
-                        <h4>
-                            {title_2}
-                        </h4>
-                        <p>
-                            {paragraph_1}
-                        </p>
-                        <p>
-                            {paragraph_2}
-                        </p>
-                        <Button variant="outline-warning">{buttonText}</Button>
-                    </Col>
-                </Row>
+                {/*anchor id for header buttons*/}
+                <ScrollableAnchor id={'about me'}>
+                    <Row>
+                        <Col lg={4}>
+                            <img src={man_laptop_v1} alt="man-laptop-v1"/>
+                        </Col>
+
+                        <Col lg={8}>
+                            <h3>
+                                {title_1}
+                            </h3>
+                            <h4>
+                                {title_2}
+                            </h4>
+                            <p>
+                                {paragraph_1}
+                            </p>
+                            <p>
+                                {paragraph_2}
+                            </p>
+                            <Button variant="outline-warning">{buttonText}</Button>
+                        </Col>
+                    </Row>
+                </ScrollableAnchor>
             </Container>
         );
     }

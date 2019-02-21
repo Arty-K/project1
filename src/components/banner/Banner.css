@@ -1,0 +1,13 @@
+.banner {
+    background: url(./bg-1.jpg) center center no-repeat ;
+    height: 720px;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+
+    color: #fff;
+}
+h1 {
+    padding-top: 140px;
+}

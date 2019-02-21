@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Container, Row, Col, Button} from 'react-bootstrap/lib/';
+import './Banner.css';
 
 
 export default class Banner extends Component {
@@ -12,7 +13,8 @@ export default class Banner extends Component {
             buttonText = 'Sign Up';
 
         return(
-            <Container>
+
+                <Container className="banner">
                 <Row>
                     <Col lg={{span: 6}}>
                         <h1>
@@ -22,7 +24,7 @@ export default class Banner extends Component {
                 </Row>
 
                 <Row>
-                    <Col lg={{span: 6}}>
+                    <Col lg={{span: 6}} >
                         <h5>
                             {paragraphText}
                         </h5>
@@ -38,6 +40,8 @@ export default class Banner extends Component {
                 </Row>
 
             </Container>
+
+
         );
     }
 }

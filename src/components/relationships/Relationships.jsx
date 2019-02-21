@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import ScrollableAnchor, { configureAnchors } from 'react-scrollable-anchor';
+
+import html from '../../imgs/html.svg';
+import css from '../../imgs/css.svg';
+import javascript from '../../imgs/javascript.svg';
 
 export default class Relationships extends Component {
     render(){
@@ -11,18 +16,24 @@ export default class Relationships extends Component {
             column_text_2 = 'Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language like HTML.',
             column_text_3 = 'JavaScript is a high-level, interpreted programming language. It is a language which is also characterized as dynamic, weakly typed, prototype-based and multi-paradigm.';
 
+        /*anchor setting to fit sticky header*/
+        configureAnchors({offset: -70, scrollDuration: 600});
+
         return(
             <div className="container">
 
-                <div className="row">
-                    <div className="col-12">
-                        <h3>{title_1}</h3>
+                {/*anchor id for header buttons*/}
+                <ScrollableAnchor id={'relationships'}>
+                    <div className="row">
+                        <div className="col-12">
+                            <h3>{title_1}</h3>
+                        </div>
                     </div>
-                </div>
+                </ScrollableAnchor>
 
                 <div className="row">
                     <div className="col-lg-4">
-                        <img src="" alt=""/>
+                        <img src={html} alt="html"/>
                         <h4>
                             {column_title_1}
                         </h4>
@@ -31,7 +42,7 @@ export default class Relationships extends Component {
                         </p>
                     </div>
                     <div className="col-lg-4">
-                        <img src="" alt=""/>
+                        <img src={css} alt="css"/>
                         <h4>
                             {column_title_2}
                         </h4>
@@ -40,7 +51,7 @@ export default class Relationships extends Component {
                         </p>
                     </div>
                     <div className="col-lg-4">
-                        <img src="" alt=""/>
+                        <img src={javascript} alt="javascript"/>
                         <h4>
                             {column_title_3}
                         </h4>

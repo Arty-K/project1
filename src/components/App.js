@@ -14,18 +14,30 @@ import './App.css';
 
 
 export default class App extends Component {
+    state = {
+        navbarElements: ['about me','relationships','requirements','users','sign up']
+
+    };
+
   render() {
     return (
+
       <Container>
 
-        <Header/>
+        <Header
+            navbarElements={this.state.navbarElements}
+
+        />
         <Banner/>
         <AboutMe/>
         <Relationships/>
         <Requirements/>
         <Users/>
         <SignUp/>
-        <Footer/>
+        <Footer
+            navbarElements={this.state.navbarElements}
+
+        />
 
       </Container>
     );

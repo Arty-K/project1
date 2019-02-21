@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import {Container, Row, Col, Button} from 'react-bootstrap/lib/';
+import ScrollableAnchor, { configureAnchors } from 'react-scrollable-anchor';
+
+import man_laptop_v2 from '../../imgs/man-laptop-v2.svg';
 
 export default class Requirements extends Component {
     render(){
@@ -8,18 +12,24 @@ export default class Requirements extends Component {
             paragraph_2 = 'If you`re a developer working on a site, now is a good time to evaluate your performance using our speed tools. Think about how performance affects the user experience of your pages and consider measuring a variety of real-world user-centric performance metrics.',
             paragraph_3 = 'Are you shipping too much JavaScript? Too many images? Images and JavaScript are the most significant contributors to the page weight that affect page load time based on data from HTTP Archive and the Chrome User Experience Report - our public dataset for key UX metrics as experienced by Chrome users under real-world conditions.';
 
-        return(
-            <div className="container">
-                <div className="row">
-                    <div className="col-12">
-                        <h3>
-                            {title}
-                        </h3>
-                    </div>
-                </div>
+        /*anchor setting to fit sticky header*/
+        configureAnchors({offset: -70, scrollDuration: 600});
 
-                <div className="row">
-                    <div className="col-6">
+        return(
+            <Container>
+                {/*anchor id for header buttons*/}
+                <ScrollableAnchor id={'requirements'}>
+                    <Row>
+                        <Col lg={12}>
+                                <h3>
+                                    {title}
+                                </h3>
+                        </Col>
+                    </Row>
+            </ScrollableAnchor>
+
+                <Row>
+                    <Col lg={12}>
                         <p>
                             {paragraph_1}
                         </p>
@@ -29,14 +39,14 @@ export default class Requirements extends Component {
                         <p>
                             {paragraph_3}
                         </p>
-                    </div>
+                    </Col>
 
-                    <div className="col-6">
-                        <img src="" alt=""/>
-                    </div>
-                </div>
+                    <Col lg={12}>
+                        <img src={man_laptop_v2} alt="man-laptop-v2"/>
+                    </Col>
+                </Row>
                 
-            </div>
+            </Container>
         );
     }
 }
