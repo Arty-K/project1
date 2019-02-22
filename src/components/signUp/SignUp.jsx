@@ -1,5 +1,14 @@
 import React, { Component } from 'react';
 
+
+//material UI start
+import ReactDOM from 'react-dom';
+import FormControl from '@material-ui/core/FormControl';
+import InputLabel from '@material-ui/core/InputLabel';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
+//end
+
+
 import {Container, Row, Col, Button, Form, InputGroup} from 'react-bootstrap/lib/';
 import ScrollableAnchor, { configureAnchors } from 'react-scrollable-anchor';
 import FormName from './FormName';
@@ -7,6 +16,9 @@ import './signup.css';
 
 import { Formik, Field } from 'formik';
 import * as yup from 'yup';
+
+
+
 
 const Schema = yup.object().shape({
     name: yup
@@ -28,7 +40,24 @@ const Schema = yup.object().shape({
 
 
 export default class SignUp extends Component {
+
+    //material UI start
+    state = {
+        name: 'Your name',
+    };
+
+    componentDidMount() {
+        this.forceUpdate();
+    }
+
+    handleChange = event => {
+        this.setState({ name: event.target.value });
+    };
+    //end
+
+
     render(){
+
         const
             title_1 = 'Register to get a work',
             title_2 = 'Attention! After successful registration and alert, update the list of users in the block from the top',
@@ -67,12 +96,7 @@ export default class SignUp extends Component {
                         {title_2}
                     </Col>
                 </Row>
-                //formik test here
-                {/*<Row>
-                    <Col lg={12}>
-                        <FormName/>
-                    </Col>
-                </Row>*/}
+
                 <Formik
                         initialValues={{
                                 name: 'name',
@@ -143,18 +167,24 @@ export default class SignUp extends Component {
 
                         <Col lg={6}>
 
-                            <InputGroup size="lg">
-                                <Form.Control
-                                    required
-                                    placeholder="Upload your photo"
-                                    aria-label="Upload your photo"
-                                    aria-describedby="basic-addon2"
-                                />
-                                <InputGroup.Append>
-                                    <Button variant="outline-warning">Upload</Button>
-                                </InputGroup.Append>
-                            </InputGroup>
-
+                            <div >
+                                <FormControl  variant="outlined">
+                                            <InputLabel
+                                                  ref={ref => {
+                                                  this.labelRef = ReactDOM.findDOMNode(ref);
+                                                    }}
+                                                     htmlFor="component-outlined"
+                                                    >
+                                                     Name
+                                            </InputLabel>
+                                             <OutlinedInput
+                                            id="component-outlined"
+                                            value={this.state.name}
+                                            onChange={this.handleChange}
+                                            labelWidth={this.labelRef ? this.labelRef.offsetWidth : 0}
+                                             />
+                                </FormControl>
+                            </div>
 
 
                             {/*<div className="custom-file">
