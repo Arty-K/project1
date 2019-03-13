@@ -1,39 +1,120 @@
 import React, { Component } from 'react';
-import {Container, Row, Col, Navbar, Nav} from 'react-bootstrap/lib/';
+
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+import AccountCircle from '@material-ui/icons/AccountCircle';
+import Button from '@material-ui/core/Button';
+
+import MenuItem from '@material-ui/core/MenuItem';
+import Menu from '@material-ui/core/Menu';
+
 import logo from '../../logo/logo.svg';
+import './header.css'
+
+const styles = theme => ({
+
+    button: {
+        margin: theme.spacing.unit,
+    },
+
+    menuButton: {
+        marginLeft: -12,
+        marginRight: 20,
+    },
+
+});
 
 
-export default class Header extends Component {
+class Header extends Component {
+
+    state = {
+        auth: true,
+        anchorEl: null,
+    };
+
+    handleMenu = event => {
+        this.setState({ anchorEl: event.currentTarget });
+    };
+
+    handleClose = () => {
+        this.setState({ anchorEl: null });
+    };
+
     render(){
-        const navbarElements=this.props.navbarElements;
+
+        const classes = this.props.classes;
+
+        const { anchorEl } = this.state;
+        const open = Boolean(anchorEl);
+
         return(
-            <Navbar bg="light" expand="lg"  sticky="top">
-                <Navbar.Brand href="#">
-                    <img
-                        src={logo}
-                        width="150"
-                        height="30"
-                        className="d-inline-block align-top"
-                        alt="logo"
-                    />
-                </Navbar.Brand>
+            <div className={classes.root}>
 
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
+                <AppBar className='appbar' position={"fixed"}>
+                    <Toolbar>
+                        <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
+                            <MenuIcon />
+                        </IconButton>
+                        <Typography variant="h6" color="inherit" className={classes.grow}>
+                            <img src={logo} alt=""/>
+                        </Typography>
+                        {
+                            <div>
+                                <IconButton
+                                    aria-owns={open ? 'menu-appbar' : undefined}
+                                    aria-haspopup="true"
+                                    onClick={this.handleMenu}
+                                    color="inherit"
+                                >
+                                    <AccountCircle />
+                                </IconButton>
 
-                    <Nav className="mr-auto">
-                        {navbarElements.map(element =>
-                            <Nav.Link
-                                key={element.toString()}
-                                href={'#' + element}
-                            >
-                                {element}
-                            </Nav.Link>
-                        )}
-                    </Nav>
+                                {navbarElements.map(element =>
+                                    <Button
+                                        className={classes.button}
+                                        key={element.toString()}
+                                        href={'#' + element}
+                                    >
+                                        {element}
+                                    </Button>
+                                )}
 
-                </Navbar.Collapse>
-            </Navbar>
+                                <Menu
+                                    id="menu-appbar"
+                                    anchorEl={anchorEl}
+                                    anchorOrigin={{
+                                        vertical: 'top',
+                                        horizontal: 'right',
+                                      }}
+                                    transformOrigin={{
+                                        vertical: 'top',
+                                        horizontal: 'right',
+                                      }}
+                                    open={open}
+                                    onClose={this.handleClose}
+                                >
+
+                                    <MenuItem onClick={this.handleClose}>Profile</MenuItem>
+                                    <MenuItem onClick={this.handleClose}>My account</MenuItem>
+                                </Menu>
+                            </div>
+                        }
+                    </Toolbar>
+                </AppBar>
+            </div>
         );
     }
 }
+
+Header.propTypes = {
+    classes: PropTypes.object.isRequired,
+};
+
+
+
+export default withStyles(styles)(Header);

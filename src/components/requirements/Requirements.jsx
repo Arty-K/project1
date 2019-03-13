@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {Container, Row, Col, Button} from 'react-bootstrap/lib/';
 import ScrollableAnchor, { configureAnchors } from 'react-scrollable-anchor';
 
 import man_laptop_v2 from '../../imgs/man-laptop-v2.svg';
@@ -15,9 +14,9 @@ export default class Requirements extends Component {
         /*anchor setting to fit sticky header*/
         configureAnchors({offset: -70, scrollDuration: 600});
 
-        return(
-            <Container>
-                {/*anchor id for header buttons*/}
+        return(<div></div>
+            /*<Container>
+                {/!*anchor id for header buttons*!/}
                 <ScrollableAnchor id={'requirements'}>
                     <Row>
                         <Col lg={12}>
@@ -46,7 +45,7 @@ export default class Requirements extends Component {
                     </Col>
                 </Row>
                 
-            </Container>
+            </Container>*/
         );
     }
 }

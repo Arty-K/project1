@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {Container, Row, Col} from 'react-bootstrap/lib/';
 import ScrollableAnchor, { configureAnchors } from 'react-scrollable-anchor';
 
 export default class Users extends Component {
@@ -7,8 +6,8 @@ export default class Users extends Component {
         /*anchor setting to fit sticky header*/
         configureAnchors({offset: -70, scrollDuration: 600});
         return(
-            <Container>
-                {/*anchor id for header buttons*/}
+            {/*<Container>
+                /!*anchor id for header buttons*!/
                 <ScrollableAnchor id={'users'}>
                     <Row>
                         <Col lg={12}>
@@ -18,7 +17,7 @@ export default class Users extends Component {
                         </Col>
                     </Row>
                 </ScrollableAnchor>
-            </Container>
+            </Container>*/}
         );
     }
 }

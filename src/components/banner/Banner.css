@@ -1,13 +1,43 @@
-.banner {
-    background: url(./bg-1.jpg) center center no-repeat ;
-    height: 720px;
+#banner {
+    background: url(./bg-1.jpg) left bottom/130% no-repeat ;
+    background-position: 0 0;
+    height: 725px;
+    color: #fff;
+/*//???????*/
+    display: block;
+}
+#h1 {
+    padding-top: 140px;
+    padding-bottom: 33px;
+    margin: 0;
+}
 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-
+p2 {
+    font-size: 18px;
+}
+#requirements {
+    background: url(./bg-2.jpg) left bottom/120% no-repeat ;
+    background-position: 0 0;
+    height: 755px;
     color: #fff;
 }
-h1 {
-    padding-top: 140px;
+
+#appbar {
+    margin-top: -10px;
+    min-width: 930px;
+    height: 64px;
+    padding-right: 47px;
+    padding-left: 47px;
+    background-color: #ffffff;
+}
+ul, li {
+    list-style: none;
+    padding: 0;
+}
+#footer-span {
+    font-weight: 400;
+    font-size: 18px;
+    font-family: 'Source Sans Pro',sans-serif;
+    color: #ffffff;
+    padding-left: 10px;
 }

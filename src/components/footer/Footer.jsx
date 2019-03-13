@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Container, Row, Col} from 'react-bootstrap/lib/';
+
 import './footer.css';
 import facebook from '../../icons/facebook.svg';
 import linkedin from '../../icons/linkedin.svg';
@@ -23,10 +23,11 @@ export default class Footer extends Component {
             };
         const footerCopyright = '© abz.agency specially for the test task';
 
+
         return(
             <div className="container footer">
                 <div className="row">
-                    <img src={logo} alt="logo"/>
+
                     buttons
                 </div>
                 <hr/>

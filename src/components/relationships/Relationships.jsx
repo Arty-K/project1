@@ -1,12 +1,25 @@
 import React, { Component } from 'react';
 import ScrollableAnchor, { configureAnchors } from 'react-scrollable-anchor';
 
+import { withStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
+
 import html from '../../imgs/html.svg';
 import css from '../../imgs/css.svg';
 import javascript from '../../imgs/javascript.svg';
 
-export default class Relationships extends Component {
+
+const styles = theme => ({
+    root: {
+        flexGrow: 1
+    }
+});
+
+
+class Relationships extends Component {
     render(){
+        const classes = this.props.classes;
         const 
             title_1 = 'About my relationships with web-development',
             column_title_1 = 'I`m in love with HTML',
@@ -20,48 +33,46 @@ export default class Relationships extends Component {
         configureAnchors({offset: -70, scrollDuration: 600});
 
         return(
-            <div className="container">
-
+            <div className={classes.root}>
+                <Grid container spacing={24}>
                 {/*anchor id for header buttons*/}
                 <ScrollableAnchor id={'relationships'}>
-                    <div className="row">
-                        <div className="col-12">
-                            <h3>{title_1}</h3>
-                        </div>
-                    </div>
+                    <Grid item xs={12}>
+                        <h3>{title_1}</h3>
+                    </Grid>
                 </ScrollableAnchor>
 
-                <div className="row">
-                    <div className="col-lg-4">
-                        <img src={html} alt="html"/>
-                        <h4>
-                            {column_title_1}
-                        </h4>
-                        <p>
-                            {column_text_1}
-                        </p>
-                    </div>
-                    <div className="col-lg-4">
-                        <img src={css} alt="css"/>
-                        <h4>
-                            {column_title_2}
-                        </h4>
-                        <p>
-                            {column_text_2}
-                        </p>
-                    </div>
-                    <div className="col-lg-4">
-                        <img src={javascript} alt="javascript"/>
-                        <h4>
-                            {column_title_3}
-                        </h4>
-                        <p>
-                            {column_text_3}
-                        </p>
-                    </div>
-                </div>
+                <Grid item xs={4}>
+                    <img src={html} alt="html"/>
+                    <h4>
+                        {column_title_1}
+                    </h4>
+                    <p>
+                        {column_text_1}
+                    </p>
+                </Grid>
+                <Grid item xs={4}>
+                    <img src={css} alt="css"/>
+                    <h4>
+                        {column_title_2}
+                    </h4>
+                    <p>
+                        {column_text_2}
+                    </p>
+                </Grid>
+                <Grid item xs={4}>
+                    <img src={javascript} alt="javascript"/>
+                    <h4>
+                        {column_title_3}
+                    </h4>
+                    <p>
+                        {column_text_3}
+                    </p>
+                </Grid>
+                </Grid>
 
             </div>
         );
     }
 }
+export default withStyles(styles)(Relationships);

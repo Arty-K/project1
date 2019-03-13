@@ -11,8 +11,6 @@ import InputMask from "react-input-mask";
 
 
 import ScrollableAnchor, { configureAnchors } from 'react-scrollable-anchor';
-import FormName from './FormName';
-import './signup.css';
 
 import { Formik, Field } from 'formik';
 import * as yup from 'yup';
@@ -164,57 +162,83 @@ class SignUp extends Component {
         );
 
 
+        /*anchor setting to fit sticky header*/
+        configureAnchors({offset: -70, scrollDuration: 600});
 
         return(
+            <div className={classes.root}>
+{/*
+                <Grid container spacing={16}>
+                    /!*SPACING 32 SEEMS EQUAL FOR BOOTSTRAP*!/
+
+                    /!*anchor id for header buttons*!/
+                    <ScrollableAnchor id={'sign up'}>
+                        <Grid item lg={12}>
+                            {title_1}
+                        </Grid>
+                    </ScrollableAnchor>
 
 
-            <Grid container spacing={16}>
-                {/*SPACING 32 SEEMS EQUAL FOR BOOTSTRAP*/}
+                    <Grid item lg={12}>
+                        {title_2}
+                    </Grid>
 
-                {/*anchor id for header buttons*/}
+                    <Formik
+                        initialValues={{
+                                name: '',
+                                email: '',
+                                phone: 'phone',
+                                file: undefined
+                            }}
+                        validationSchema={Schema}
+                        onSubmit={values => {
+                                // same shape as initial values
+                                console.log(values);
+                            }}
+                    >
 
-                <Grid item lg><TextField
-
-                    id="outlined-full-width"
-                    label="name"
-                    placeholder="Your name"
-                    helperText="Full width!"
-                    fullWidth
-
-                    variant="outlined"
-                    InputLabelProps={{
-                    shrink: true,
-                    }}
-                /></Grid>
-                <Grid item lg><TextField
-
-                    id="outlined-full-width"
-                    label="name"
-                    placeholder="Your name"
-                    helperText="Full width!"
-                    fullWidth
-
-                    variant="outlined"
-                    InputLabelProps={{
-                    shrink: true,
-                    }}
-                /></Grid>
-                <Grid item lg><TextField
-
-                    id="outlined-full-width"
-                    label="name"
-                    placeholder="Your name"
-                    helperText="Full width!"
-                    fullWidth
-
-                    variant="outlined"
-                    InputLabelProps={{
-                    shrink: true,
-                    }}
-                /></Grid>
+                        <Form className={classes.container}>
+                            <Grid item lg={4}>
+                                <Form.Group controlId="formGroupName">
+                                    <Form.Label>Name</Form.Label>
+                                    <Field name="name" type={'text'} component={customInputName}/>
+                                </Form.Group>
+                            </Grid>
+                            <Grid item lg={4}>
+                                <Form.Group controlId="formGroupEmail">
+                                    <Form.Label>Email</Form.Label>
+                                    <Field name="email" type={'email'} component={customInputEmail}/>
+                                </Form.Group>
+                            </Grid>
+                            <Grid item lg={4}>
+                                <Form.Group controlId="formGroupPhone">
+                                    <Form.Label>phone</Form.Label>
+                                    <Field name="phone" type={'number'} component={customInputPhone}/>
+                                </Form.Group>
+                            </Grid>
 
 
-            </Grid>
+
+
+
+
+
+
+                            <Grid item lg={6}>
+                                /!*SELECT FIELD*!/
+
+                            </Grid>
+
+
+
+                            <Grid item lg={6}>
+                                /!*FILE FIELD*!/
+
+                            </Grid>
+                        </Form>
+                    </Formik>
+
+                </Grid>*/}</div>
         );
     }
 }

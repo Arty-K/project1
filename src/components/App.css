@@ -1,24 +1,13 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
+#bgr1 {
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+  background: url(../components/banner/bg-1.jpg) bottom right no-repeat;
+  height: 720px;
 
-.App-link {
-  color: #61dafb;
-}
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
 
+  color: black;
+
+}
