@@ -1,0 +1,26 @@
+@mixin responsiveImage {
+  width: 100%;
+  height: auto;
+}
+
+@mixin defaultContainer {
+   width: 100%;
+   padding-right: 15px;
+   padding-left: 15px;
+   margin-right: auto;
+   margin-left: auto;
+}
+
+@mixin a {
+  text-decoration: none;
+  text-transform: none;
+  color: inherit;
+}
+
+@mixin truncated {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
